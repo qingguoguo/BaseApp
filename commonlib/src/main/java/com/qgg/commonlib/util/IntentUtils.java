@@ -72,7 +72,7 @@ public final class IntentUtils {
             data = Uri.fromFile(file);
         } else {
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            data = FileProvider.getUriForFile(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), authority, file);
+            data = FileProvider.getUriForFile(Utils.getApp(), authority, file);
         }
         intent.setDataAndType(data, type);
         return getIntent(intent, isNewTask);
@@ -119,7 +119,7 @@ public final class IntentUtils {
      * @return 打开 App 的意图
      */
     public static Intent getLaunchAppIntent(final String packageName, final boolean isNewTask) {
-        Intent intent = com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getPackageManager().getLaunchIntentForPackage(packageName);
+        Intent intent = Utils.getApp().getPackageManager().getLaunchIntentForPackage(packageName);
         if (intent == null) {
             return null;
         }

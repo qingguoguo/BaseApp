@@ -16,18 +16,18 @@ public class ToastUtils {
     }
 
     public static void showLong(String msg) {
-        Toast.makeText(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(Utils.getApp(), msg, Toast.LENGTH_LONG).show();
     }
 
     public static void showLong(@StringRes int id) {
-        Toast.makeText(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getResources().getText(id), Toast.LENGTH_LONG).show();
+        Toast.makeText(Utils.getApp(), Utils.getApp().getResources().getText(id), Toast.LENGTH_LONG).show();
     }
 
     public static void showShort(String msg) {
-        Toast.makeText(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Utils.getApp(), msg, Toast.LENGTH_SHORT).show();
     }
 
     public static void showShort(@StringRes int id) {
-        Toast.makeText(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getResources().getText(id), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Utils.getApp(), Utils.getApp().getResources().getText(id), Toast.LENGTH_SHORT).show();
     }
 }

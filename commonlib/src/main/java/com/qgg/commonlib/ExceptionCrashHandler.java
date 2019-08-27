@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 
-import com.connotationjoke.qingguoguo.baselibrary.util.LogUtils;
+import com.qgg.commonlib.util.LogUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,9 +29,9 @@ public class ExceptionCrashHandler implements Thread.UncaughtExceptionHandler {
     private static ExceptionCrashHandler instance;
     private Thread.UncaughtExceptionHandler mExceptionHandler;
     private Context mContext;
-    public final static String CRASH = "crash";
-    public final static String CRASH_LOG = "crash_log";
-    public final static String TAG = ExceptionCrashHandler.class.getSimpleName();
+    private final static String CRASH = "crash";
+    private final static String CRASH_LOG = "crash_log";
+    private final static String TAG = ExceptionCrashHandler.class.getSimpleName();
 
     private ExceptionCrashHandler() {
     }
@@ -160,7 +160,7 @@ public class ExceptionCrashHandler implements Thread.UncaughtExceptionHandler {
      * 获取手机信息
      */
     private String getMobileInfo() {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         Field[] declaredFields = Build.class.getDeclaredFields();
         for (Field field : declaredFields) {
             field.setAccessible(true);

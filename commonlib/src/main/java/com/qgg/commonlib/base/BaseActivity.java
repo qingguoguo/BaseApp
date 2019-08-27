@@ -8,7 +8,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.connotationjoke.qingguoguo.baselibrary.ioc.ViewUtils;
+import com.qgg.commonlib.ioc.ViewUtils;
 
 /**
  * 作者:qingguoguo

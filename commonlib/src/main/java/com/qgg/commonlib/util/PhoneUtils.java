@@ -28,7 +28,7 @@ public final class PhoneUtils {
      */
     public static boolean isPhone() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null && tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
     }
 
@@ -42,7 +42,7 @@ public final class PhoneUtils {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getIMEI() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getDeviceId() : null;
     }
 
@@ -56,7 +56,7 @@ public final class PhoneUtils {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getIMSI() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getSubscriberId() : null;
     }
 
@@ -73,7 +73,7 @@ public final class PhoneUtils {
      */
     public static int getPhoneType() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getPhoneType() : -1;
     }
 
@@ -84,7 +84,7 @@ public final class PhoneUtils {
      */
     public static boolean isSimCardReady() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null && tm.getSimState() == TelephonyManager.SIM_STATE_READY;
     }
 
@@ -96,7 +96,7 @@ public final class PhoneUtils {
      */
     public static String getSimOperatorName() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getSimOperatorName() : null;
     }
 
@@ -108,7 +108,7 @@ public final class PhoneUtils {
      */
     public static String getSimOperatorByMnc() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         String operator = tm != null ? tm.getSimOperator() : null;
         if (operator == null) {
             return null;
@@ -151,7 +151,7 @@ public final class PhoneUtils {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getPhoneStatus() {
         TelephonyManager tm =
-                (TelephonyManager) com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         if (tm == null) {
             return "";
         }
@@ -180,7 +180,7 @@ public final class PhoneUtils {
      * @param phoneNumber 电话号码
      */
     public static void dial(final String phoneNumber) {
-        com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().startActivity(IntentUtils.getDialIntent(phoneNumber, true));
+        Utils.getApp().startActivity(IntentUtils.getDialIntent(phoneNumber, true));
     }
 
     /**
@@ -190,7 +190,7 @@ public final class PhoneUtils {
      * @param phoneNumber 电话号码
      */
     public static void call(final String phoneNumber) {
-        com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().startActivity(IntentUtils.getCallIntent(phoneNumber, true));
+        Utils.getApp().startActivity(IntentUtils.getCallIntent(phoneNumber, true));
     }
 
     /**
@@ -200,7 +200,7 @@ public final class PhoneUtils {
      * @param content     短信内容
      */
     public static void sendSms(final String phoneNumber, final String content) {
-        com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp().startActivity(IntentUtils.getSendSmsIntent(phoneNumber, content, true));
+        Utils.getApp().startActivity(IntentUtils.getSendSmsIntent(phoneNumber, content, true));
     }
 
     /**
@@ -211,10 +211,10 @@ public final class PhoneUtils {
      * @param content     短信内容
      */
     public static void sendSmsSilent(final String phoneNumber, final String content) {
-        if (com.connotationjoke.qingguoguo.baselibrary.util.StringUtils.isEmpty(content)) {
+        if (StringUtils.isEmpty(content)) {
             return;
         }
-        PendingIntent sentIntent = PendingIntent.getBroadcast(com.connotationjoke.qingguoguo.baselibrary.util.Utils.getApp(), 0, new Intent(), 0);
+        PendingIntent sentIntent = PendingIntent.getBroadcast(Utils.getApp(), 0, new Intent(), 0);
         SmsManager smsManager = SmsManager.getDefault();
         if (content.length() >= 70) {
             List<String> ms = smsManager.divideMessage(content);
